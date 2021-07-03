@@ -1,0 +1,109 @@
+html {
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  font-family: "arial";
+}
+*, div > * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* border: 2px solid mediumseagreen; */
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+#clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+main {
+  font-family: 'Rubik', sans-serif;
+  background-color: white;
+  padding: 2%;
+  align-content: center;
+}
+#mainContainer {
+  width: 75vw;
+  height: 80vh;
+  background-color: cadetblue;
+  border: 1px solid gainsboro;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+  padding: 2%;
+}
+
+#alphabetDisplay {
+  background-color: lightgoldenrodyellow;
+  border: 1px solid gainsboro;
+  margin: auto;
+  display: flex;
+  align-self: flex-end;
+  width: 100%;
+  padding: 2%;
+}
+.scoreboard {
+  width: 100px;
+  height: 50px;
+  background-color: violet;
+}
+.button {
+  border: 1px solid red;
+  height: 20px;
+  width: 30px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 2px;
+  box-shadow: 0 2px 2px 0 gray;
+}
+#wordContainer {
+  background-color: pink;
+  border: 1px solid gainsboro;
+  margin: auto;
+  align-self: center;
+  height: 80px;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#letterContainer {
+  margin: auto;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2%;
+}
+.guess {
+  border: 1px solid blue;
+  width: 30px;
+  height: 20px;
+  background-color: white;
+  border-radius: 5px;
+  margin: 2px;
+  font-size: 15px;
+}
+#instructions {
+  margin-top: 50px;
+  align-self: center;
+  color: white;
+}
+#mistakesContainer, #allowedMistakesContainer, #userScoreContainer, h1 {
+  color: white;
+}
+h1 {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: lightblue;
+}
+div {
+  border-radius: 5px;
+}
