@@ -45,6 +45,7 @@ main {
   margin: auto;
   display: flex;
   align-self: flex-end;
+  flex-wrap: wrap;
   width: 100%;
   padding: 2%;
 }
@@ -61,6 +62,7 @@ main {
   border-radius: 5px;
   margin: 2px;
   box-shadow: 0 2px 2px 0 gray;
+  margin: 0 auto;
 }
 #wordContainer {
   background-color: pink;
@@ -74,15 +76,13 @@ main {
   flex-direction: row;
 }
 
-#letterContainer {
+#correctLetterContainer {
   margin: auto;
   display: flex;
-  align-self: center;
-  justify-content: center;
   width: 100%;
   padding: 2%;
 }
-.guess {
+#guess {
   border: 1px solid blue;
   width: 30px;
   height: 20px;
@@ -102,7 +102,8 @@ main {
 h1 {
   margin-bottom: 20px;
   margin-top: 20px;
-  background-color: lightblue;
+  background-color: lightseagreen;
+  padding: 2%;
 }
 div {
   border-radius: 5px;
