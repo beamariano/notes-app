@@ -1,85 +1,99 @@
-// Sample wordlist
-let wordlist = ["Accepting", "Afraid", "Aggravated", "Agitated", "Alive", "Amazed", "Angry", "Annoyed", "", "Anxious", "Apprehensive", "Awe", "Bitter", "Bliss", "Calm", "Centered", "Contempt", "Content", "Cranky", "Cynical", "Delighted", "Depleted", "Disdain", "Disgruntled", "Disturbed", "Eager", "Ecstatic", "Edgy", "Enchanted", "Energized", "Engaged", "Exhausted", "Frazzled", "Frightened", "Fulfilled", "Hesitant", "Joy", "Nervous", "Open", "Panic", "Paralyzed", "Patient", "Peaceful", "Present", "Relaxed", "Scared", "Serene", "Terrified", "Trusting", "Worried"]; //40+ words
+// DECLARATIONS
 
-// This function picks a random word for guessing
-let word = wordlist[(Math.floor(Math.random() * wordlist.length))].toUpperCase(); // remember that 'word' is a string
+let guesses = []; // contains array of letters clicked
+let userScore = 0;
+let mistakes = 0;
 
-console.log('The random word is ' + word); // shows random word
+function beginGame() {
+  createWordAndAlphabetButtons();
+  checkLetter();
+}
+// This creates a randomizes an emotion word to be guessed.
+let wordlist = ["Accepting", "Afraid", "Aggravated", "Agitated", "Alive", "Amazed", "Angry", "Annoyed", "Anxious", "Apprehensive", "Awe", "Bitter", "Bliss", "Calm", "Centered", "Contempt", "Content", "Cranky", "Cynical", "Delighted", "Depleted", "Disdain", "Disgruntled", "Disturbed", "Eager", "Ecstatic", "Edgy", "Enchanted", "Energized", "Engaged", "Exhausted", "Frazzled", "Frightened", "Fulfilled", "Hesitant", "Joy", "Nervous", "Open", "Panic", "Paralyzed", "Patient", "Peaceful", "Present", "Relaxed", "Scared", "Serene", "Terrified", "Trusting", "Worried"];
 
-//This creates the letter containers
+let word = wordlist[(Math.floor(Math.random() * wordlist.length))].toUpperCase();
+
 let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-// let clickedLetter = ""; // to make it string; one character
-// where all the clicked letters are stored
 
-let guesses = []; // contains array of clicked letters
-// let mainDisplay = document.getElementById('mainDisplay');
 
-//This part displays the alphabet buttons
-//This is a loop that creates the button container and letter inside and checks if the selected letter is part of random word to be guessed
+//This is a function that creates the button container and letters inside. It also checks if the selected letter is part of random word to be guessed.
+function createWordAndAlphabetButtons() {
+  
+console.log('The random word is ' + word);
 
-for (let i = 0; i < alphabet.length; i++) {
+  for (let i = 0; i < alphabet.length; i++) {
 
-  let button = document.createElement('div');
-  button.classList.add('button');
-  button.textContent = alphabet[i].toUpperCase();
+    let button = document.createElement('div');
+    button.classList.add('button');
+    button.textContent = alphabet[i].toUpperCase();
 
-  let alphabetDisplay = document.getElementById('alphabetDisplay');
-  alphabetDisplay.appendChild(button);
+    let alphabetDisplay = document.getElementById('alphabetDisplay');
+    alphabetDisplay.appendChild(button);
 
-  // when the letter is clicked it is appended onto the  container 
 
-  button.addEventListener('click', function () {
-    let clickedLetter = (this.innerHTML);
-    this.setAttribute("style", "background-color: lightGrey; pointer-events: none; border: 0.5px solid grey"); // shows that the letter has been pushed and disables it from being clicked again
-
-    for (let i = 0; i < word.length; i++) {
-      if (clickedLetter === word[i]) {
-        guesses[i].innerHTML = clickedLetter; // array of correct letters
+    // when the letter is clicked it is appended onto an array of collect letters 
+    button.addEventListener('click', function () {
+      let clickedLetter = (this.innerHTML);
+      this.setAttribute("style", "background-color: lightGrey; pointer-events: none; border: 0.5px solid grey"); // shows that the letter has been pushed and disables it from being clicked again
+  
+      for (let i = 0; i < word.length; i++) {
+        if (clickedLetter === word[i]) {
+          guesses[i].innerHTML = clickedLetter; // array of correct letters
+        }
       }
-    }
-
-    //This block checks if clicked letter is in the index of the index of the random word. If true, it pushes clicked letters into the array called guesses
-    if (word.indexOf(clickedLetter) === -1) { // if clicked letter is wrong, update mistakes scoreboard
-      console.log('key pushed: ' + alphabet[i].toUpperCase() + ', wrong letter');
-      updateMistakes();
-    } else { // if clicked letter is correct, add letters to array called guesses
-      console.log('key pushed: ' + alphabet[i].toUpperCase() + ', correct letter');
-    }
-
-    let content = document.getElementById('correctLetterContainer');
-    correctWord = content.textContent;
-    console.log(correctWord);
-    checkWord(correctWord);
-    checkIfGameWon();
-  });
+  
+      //This block checks if clicked letter is in the index of the index of the random word. If true, it pushes clicked letters into the array called guesses
+      if (word.indexOf(clickedLetter) === -1) { // if clicked letter is wrong, update mistakes scoreboard
+        console.log('key pushed: ' + alphabet[i].toUpperCase() + ', wrong letter');
+        updateMistakes();
+      } else { // if clicked letter is correct, add letters to array called guesses
+        console.log('key pushed: ' + alphabet[i].toUpperCase() + ', correct letter');
+      }
+  
+      let content = document.getElementById('correctLetterContainer');
+      correctWord = content.textContent;
+      console.log('Word being formed: ' + correctWord);
+      checkWord(correctWord);
+    });
+  }
 }
+
+createWordAndAlphabetButtons();
+
 function checkWord(correctWord) {
 
   if (correctWord.toUpperCase() == word.toUpperCase()) {
-
     console.log('Correct word guessed.');
-    let userScoreContainer = document.querySelector('#userScoreContainer span');
-    console.log('You win!');
-    userScore++;
-    userScoreContainer.textContent = userScore;
-    checkIfGameWon();
+    alert('You guessed correctly! Try the next word!');
+    addToScore();
+checkIfGameWon();
+    // let userScoreContainer = document.querySelector('#userScoreContainer span');
+    // userScore++;
+    // userScoreContainer.textContent = userScore;
+    
 
   }
 }
 
 
+function addToScore() {
+    let userScoreContainer = document.querySelector('#userScoreContainer span');
+    userScoreContainer.textContent = userScore;
+    userScore++;
+    checkIfGameWon();
+}
+// }
+
 checkLetter();
-
 // This function creates the blanks _ in the word container and checks if it matches the random word. It also makes the letter appear.
-
 function checkLetter() {
 
   wordContainer = document.getElementById('wordContainer');
-  correctWord = document.createElement('div');
+  guessedWord = document.createElement('div');
 
-  for (var i = 0; i < word.length; i++) {
-    correctWord.setAttribute('id', 'correctLetterContainer');
+  for (let i = 0; i < word.length; i++) {
+    guessedWord.setAttribute('id', 'correctLetterContainer');
 
     letter = document.createElement('div'); // doubled?
     letter.setAttribute('id', 'guess');
@@ -93,44 +107,31 @@ function checkLetter() {
       letter.innerHTML = "_";
     }
     guesses.push(letter);
-    wordContainer.appendChild(correctWord);
-    correctWord.appendChild(letter);
+    wordContainer.appendChild(guessedWord);
+    guessedWord.appendChild(letter);
   }
-  
-
 }
 
-
-
-// // // This function checks if the guessed letters are in the index of the random word called word. If so, it adds 1 to the userScore and the user wins this round.
-// //Note: guesses is an array, while word is a string
-// function checkLetter() {
-
-// // HOW DO I GET THE TEXTS INSIDE the div with id? and then concatenate it? afterwards compare if it's the same word??
-
-// }
-
-
-
-
-var mistakes = 0;
 // This function adds 1 to mistakes if letter was not guessed correctly
 function updateMistakes() {
+  let mistakes = 0;
   let mistakesContainer = document.querySelector('#mistakesContainer span');
   mistakes++;
   mistakesContainer.textContent = mistakes;
   checkIfGameLost();
 }
 
-let userScore = 0;
 // This function checks if the game has been won and resets game
 function checkIfGameWon() {
-  if (userScore == 1) {
+  if (userScore == 5) {
     resetGame();
     alert('You won!');
   }
   if (mistakes == 7) {
     alert('You lose.');
+    resetGame();
+  }
+  else {
     resetGame();
   }
 }
@@ -142,8 +143,23 @@ function checkIfGameLost() {
     resetGame();
   }
 }
-//This function resets the game
+
+
+// Click function resets button
+document.getElementById('reset').onclick = function () {
+  console.log('Restart game clicked.')
+  resetGame();
+}
+
+//This function resets the game. The mistakes turn to 0. Letter buttons and a new random word are created.
 function resetGame() {
-  userScore = 0;
-  mistakes = 0;
+  document.getElementById("mistakesContainer").textContent = '0';
+  document.getElementById("alphabetDisplay").innerHTML = '';
+  i = document.getElementById("correctLetterContainer");
+  i.remove();
+  beginGame();
+}
+
+function animation() {
+
 }
