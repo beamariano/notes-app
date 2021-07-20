@@ -34,7 +34,6 @@ function createWordAndAlphabetButtons() {
       let clickedLetter = this.innerHTML;
       this.classList.add('disabled-letters');
 
-
       for (let i = 0; i < word.length; i++) {
         if (clickedLetter === word[i]) {
           guesses[i].innerHTML = clickedLetter; //array of correct letters
@@ -67,19 +66,19 @@ function checkWord(correctWord) {
     alert('You guessed correctly! Try the next word!');
     addToScore();
     checkIfGameWon();
+    //userScore++;
     let userScoreContainer = document.querySelector('#userScoreContainer span');
-    userScore++;
     userScoreContainer.textContent = userScore;
-
 
   }
 }
 
 
 function addToScore() {
+  userScore++;
   let userScoreContainer = document.querySelector('#userScoreContainer span');
   userScoreContainer.textContent = userScore;
-  userScore++;
+  
   checkIfGameWon();
 }
 
