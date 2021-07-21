@@ -108,6 +108,7 @@ function checkWord(correctWord) {
     checkIfGameWon();
     let userScoreContainer = document.querySelector('#userScoreContainer span');
     userScoreContainer.textContent = userScore;
+    resetGame();
   }
 }
 
