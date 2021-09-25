@@ -37,14 +37,14 @@ const NewNoteForm = () => {
   };
 
   const fetchNewNotes = () => {
-    axios.get("http://localhost:8080/notes").then((res) => {
+    axios.get("https://beam-notes-db.herokuapp.com/notes").then((res) => {
       dispatch({ type: "ALL_USER_NOTES", payload: res.data });
     });
   };
 
   const onClickAddHandler = () => {
     axios
-      .post(`http://localhost:8080/notes/${user._id}/new`, {
+      .post(`https://beam-notes-db.herokuapp.com/notes/${user._id}/new`, {
         title: title,
         body: body,
         category: category,

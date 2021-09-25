@@ -39,7 +39,7 @@ const Register = () => {
     if (userName !== "" && password === confirmPassword) {
       //check first if email is in database
       axios
-        .post("http://localhost:8080/users/email-exists", {
+        .post("https://beam-notes-db.herokuapp.com/users/email-exists", {
           emailToCheck: email,
         })
         .then((res) => {
@@ -48,7 +48,7 @@ const Register = () => {
             alert("Oops. That account exists. Login or check your email.");
           } else {
             axios
-              .post("http://localhost:8080/users/register", {
+              .post("https://beam-notes-db.herokuapp.com/users/register", {
                 userName: userName,
                 firstName: firstName,
                 lastName: lastName,

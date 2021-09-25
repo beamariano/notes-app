@@ -27,17 +27,21 @@ const EditProfile = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/users/${user._id}`).then((res) => {
-      console.log(res.data);
-      dispatch({ type: "FETCH_USER_METADATA", payload: res.data });
-    });
+    axios
+      .get(`https://beam-notes-db.herokuapp.com/users/${user._id}`)
+      .then((res) => {
+        console.log(res.data);
+        dispatch({ type: "FETCH_USER_METADATA", payload: res.data });
+      });
   }, []);
 
   const fetchUserData = () => {
-    axios.get(`http://localhost:8080/users/${user._id}`).then((res) => {
-      console.log(res.data);
-      dispatch({ type: "FETCH_USER_METADATA", payload: res.data });
-    });
+    axios
+      .get(`https://beam-notes-db.herokuapp.com/users/${user._id}`)
+      .then((res) => {
+        console.log(res.data);
+        dispatch({ type: "FETCH_USER_METADATA", payload: res.data });
+      });
   };
 
   const onFormSubmit = (e) => {
@@ -59,20 +63,23 @@ const EditProfile = () => {
     // };
     // console.log(editedProfile);
     axios
-      .put(`http://localhost:8080/notes/${user._id}/edit-profile`, {
-        userName: userName,
-        firstName: firstName,
-        lastName: lastName,
-        image: image,
-        password: password,
-        birthday: birthday,
-        gender: gender,
-        pronouns: pronouns,
-        email: email,
-        city: city,
-        country: country,
-        lastUpdated: lastUpdated,
-      })
+      .put(
+        `https://beam-notes-db.herokuapp.com/notes/${user._id}/edit-profile`,
+        {
+          userName: userName,
+          firstName: firstName,
+          lastName: lastName,
+          image: image,
+          password: password,
+          birthday: birthday,
+          gender: gender,
+          pronouns: pronouns,
+          email: email,
+          city: city,
+          country: country,
+          lastUpdated: lastUpdated,
+        }
+      )
       .then((res) => {
         console.log(res.data);
       });

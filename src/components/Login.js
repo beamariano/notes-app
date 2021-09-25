@@ -26,7 +26,7 @@ const Login = () => {
     setValidated(true);
 
     axios
-      .post("http://localhost:8080/users/login", {
+      .post("https://beam-notes-db.herokuapp.com/users/login", {
         email: email,
         password: password,
       })

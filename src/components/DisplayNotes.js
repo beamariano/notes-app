@@ -44,7 +44,7 @@ const DisplayNotes = () => {
   };
 
   useEffect(() => {
-    axios.get("http://localhost:8080/notes").then((res) => {
+    axios.get("https://beam-notes-db.herokuapp.com/notes").then((res) => {
       console.log(res.data);
       console.log("notes updated");
       dispatch({ type: "ALL_USER_NOTES", payload: res.data });
@@ -56,7 +56,7 @@ const DisplayNotes = () => {
   }, [noteToEdit]);
 
   const updateUserNotes = (res) => {
-    axios.get("http://localhost:8080/notes").then((res) => {
+    axios.get("https://beam-notes-db.herokuapp.com/notes").then((res) => {
       dispatch({ type: "ALL_USER_NOTES", payload: res.data });
     });
   };
@@ -78,7 +78,7 @@ const DisplayNotes = () => {
   // hide or soft delete - WORKING!
   const onHideButtonHandler = (noteId) => {
     axios
-      .put(`http://localhost:8080/notes/${noteId}/display`, {
+      .put(`https://beam-notes-db.herokuapp.com/notes/${noteId}/display`, {
         display: false,
       })
       .then((res) => {
@@ -90,7 +90,7 @@ const DisplayNotes = () => {
   //unhide - WORKING
   const onShowButtonHandler = (noteId) => {
     axios
-      .put(`http://localhost:8080/notes/${noteId}/display`, {
+      .put(`https://beam-notes-db.herokuapp.com/notes/${noteId}/display`, {
         display: true,
       })
       .then((res) => {
@@ -104,10 +104,12 @@ const DisplayNotes = () => {
 
   //hard delete - WORKING! as in it updates
   const onDeleteButtonHandler = (noteId) => {
-    axios.delete(`http://localhost:8080/notes/${noteId}/delete`).then((res) => {
-      console.log(res.data); // confirms note was deleted
-      updateUserNotes();
-    });
+    axios
+      .delete(`https://beam-notes-db.herokuapp.com/notes/${noteId}/delete`)
+      .then((res) => {
+        console.log(res.data); // confirms note was deleted
+        updateUserNotes();
+      });
   };
 
   // get all notes by user
