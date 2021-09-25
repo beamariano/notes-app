@@ -3,10 +3,13 @@ const app = express();
 const port = 8080;
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/notesApp", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://beam:970KIN2dKftKUZKd@cluster0.98oll.mongodb.net/notes_app?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
