@@ -5,7 +5,7 @@ Frontend - React, Redux, Bootstrap
 Backend - MongoDB, Node, Express
 
 ## About
-A live full-stack note-taking web application that is easy on the eyes, simple to use and secure. Key features: user registration and authentication, able to create, edit, delete and hide notes (CRUD functionalities).
+A live full-stack (MERN) note-taking web application that is easy on the eyes, simple to use and secure. Key features: user registration and authentication, able to create, edit, delete and hide notes (CRUD functionalities).
 
 This is the repository for the front-end application, for the Express server repository go to: https://github.com/beamariano/notes-db
 
@@ -20,8 +20,8 @@ and search function.
 npm install
 
 ## To Start Application
-npm run start
-Open http://localhost:3000 to view it in your browser.
+- npm run start
+- Open http://localhost:3000 to view it in your browser.
 
 ## Dependencies
 - axios
