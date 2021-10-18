@@ -16,7 +16,6 @@ const NewNoteForm = () => {
   const [tags, setTags] = useState("sample tags");
   const [dateCreated, setDateCreated] = useState(Date());
   const [dateModified, setDateModified] = useState(Date());
-
   const [by, setBy] = useState(user._id);
 
   //modal
@@ -83,7 +82,7 @@ const NewNoteForm = () => {
           <Form>
             <Modal.Header className="note-header">
               <Modal.Title>
-                <Form.Group className="mb-3" controlId="header">
+                <Form.Group className="mb-3">
                   <Form.Control
                     placeholder="[Title]"
                     rows={10}
@@ -97,7 +96,7 @@ const NewNoteForm = () => {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body className="note-body">
-              <Form.Group className="mb-3" controlId="body">
+              <Form.Group className="mb-3">
                 <Form.Control
                   placeholder="Your Notes Here"
                   as="textarea"

@@ -53,7 +53,7 @@ const Profile = () => {
         <Button>Edit Profile</Button>
         <Form>
           {/* username */}
-          <label for="userName">
+          <label htmlFor="userName">
             How do you want to be called?
             <input
               id="userName"
@@ -65,7 +65,7 @@ const Profile = () => {
             ></input>
           </label>
           {/* firstName */}
-          <label for="firstName">
+          <label htmlFor="firstName">
             First Name
             <input
               id="firstName"
@@ -77,7 +77,7 @@ const Profile = () => {
             ></input>{" "}
           </label>
           {/* lastName */}
-          <label for="lastName">
+          <label htmlFor="lastName">
             Last Name
             <input
               id="lastName"
@@ -89,7 +89,7 @@ const Profile = () => {
             ></input>
           </label>
           {/* email */}
-          <label for="email">
+          <label htmlFor="email">
             Email
             <input
               id="email"
@@ -101,7 +101,7 @@ const Profile = () => {
             ></input>
           </label>
           {/* status, if you want to deactivate? */}
-          <label for="status">
+          <label htmlFor="status">
             Account Status
             <input
               id="status"
@@ -113,7 +113,7 @@ const Profile = () => {
             ></input>
           </label>
           {/* password */}
-          <label for="password">
+          <label htmlFor="password">
             Password
             <input
               id="password"
@@ -126,7 +126,7 @@ const Profile = () => {
           </label>
 
           {/* //   image */}
-          <label for="image">
+          <label htmlFor="image">
             Profile Picture
             <input
               id="image"
@@ -138,7 +138,7 @@ const Profile = () => {
             ></input>
           </label>
           {/* birthday */}
-          <label for="birthday">
+          <label htmlFor="birthday">
             Date of Birth
             <input
               id="birthday"
@@ -151,7 +151,7 @@ const Profile = () => {
           </label>
           {/* gender */}
 
-          <label for="gender">
+          <label htmlFor="gender">
             Pronouns
             <input
               id="gender"
@@ -163,7 +163,7 @@ const Profile = () => {
             ></input>
           </label>
           {/* country */}
-          <label for="country">
+          <label htmlFor="country">
             Country of Residence
             <input
               id="country"
@@ -175,7 +175,7 @@ const Profile = () => {
             ></input>
           </label>
           {/* city */}
-          <label for="city">
+          <label htmlFor="city">
             City
             <input
               id="city"
@@ -191,7 +191,7 @@ const Profile = () => {
           <input type="submit" onClick={onFormSubmit}></input>
 
           {/* lastUpdated */}
-          <label for="lastupdated">
+          <label htmlFor="lastupdated">
             Last Updated:
             <input
               disabled
@@ -205,7 +205,7 @@ const Profile = () => {
           </label>
 
           {/* dateCreated */}
-          <label for="dateCreated">
+          <label htmlFor="dateCreated">
             Account Created
             <input
               disabled

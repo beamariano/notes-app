@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Button, Row, Col, Form } from "react-bootstrap";
 
 import "react-datepicker/dist/react-datepicker.css";
-import FormCheckInput from "react-bootstrap/esm/FormCheckInput";
 import axios from "axios";
 
 const EditProfile = () => {
@@ -46,22 +45,6 @@ const EditProfile = () => {
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-
-    // let editedProfile = {
-    //   userName: userName,
-    //   firstName: firstName,
-    //   lastName: lastName,
-    //   image: image,
-    //   password: password,
-    //   birthday: birthday,
-    //   gender: gender,
-    //   pronouns: pronouns,
-    //   email: email,
-    //   city: city,
-    //   country: country,
-    //   lastUpdated: lastUpdated,
-    // };
-    // console.log(editedProfile);
     axios
       .put(
         `https://beam-notes-db.herokuapp.com/notes/${user._id}/edit-profile`,
@@ -95,7 +78,6 @@ const EditProfile = () => {
     <div className="profile-box">
       <h1> Hello, {user.userName}</h1>
       <p>Edit your profile here</p>
-      {/* <Button>Edit Profile</Button> */}
       <Row className="profile-box-details">
         <Col className="left-col">
           <div className="profile-image">
@@ -106,7 +88,7 @@ const EditProfile = () => {
               alt={user.userName + "image"}
             />
             <Form>
-              <Form.Group controlId="formFileSm" className="mb-3">
+              <Form.Group className="mb-3">
                 <Form.Label>Change Profile Picture</Form.Label>
                 <br />
                 <Form.Control type="file" size="sm" id="image" />
@@ -119,7 +101,7 @@ const EditProfile = () => {
               {/* password */}
               <Button variant="warning">Change Password</Button>
               {/* <Form.Group>
-                <Form.Label for="password">
+                <Form.Label htmlFor="password">
                   Password
                   <Form.Control
                     id="password"
@@ -135,7 +117,7 @@ const EditProfile = () => {
               <br />
               <br />
               <Form.Group>
-                <Form.Label for="status">
+                <Form.Label htmlFor="status">
                   Account Status
                   <Form.Control
                     size="sm"
@@ -151,7 +133,7 @@ const EditProfile = () => {
               </Form.Group>
               {/* lastUpdated */}
               <Form.Group>
-                <Form.Label for="lastupdated">
+                <Form.Label htmlFor="lastupdated">
                   Last Updated:
                   <Form.Control
                     size="sm"
@@ -167,7 +149,7 @@ const EditProfile = () => {
               </Form.Group>
               {/* dateCreated */}
               <Form.Group>
-                <Form.Label for="dateCreated">
+                <Form.Label htmlFor="dateCreated">
                   Account Created
                   <Form.Control
                     size="sm"
@@ -187,7 +169,7 @@ const EditProfile = () => {
             <Form>
               {/* username */}
               <Form.Group>
-                <Form.Label for="userName">
+                <Form.Label htmlFor="userName">
                   How would you like to be called?
                   <Form.Control
                     id="userName"
@@ -205,7 +187,7 @@ const EditProfile = () => {
                 <Col>
                   {/* gender */}
                   <Form.Group>
-                    <Form.Label for="gender">
+                    <Form.Label htmlFor="gender">
                       How do you identity?
                       <Form.Control
                         id="gender"
@@ -221,7 +203,7 @@ const EditProfile = () => {
                 {/* pronouns */}
                 <Col>
                   <Form.Group>
-                    <Form.Label for="pronouns">
+                    <Form.Label htmlForlFor="pronouns">
                       Your Pronouns
                       <Form.Control
                         id="pronouns"
@@ -242,7 +224,7 @@ const EditProfile = () => {
                 <Col>
                   {/* firstName */}
                   <Form.Group>
-                    <Form.Label for="firstName">
+                    <Form.Label htmlFor="firstName">
                       First Name
                       <Form.Control
                         id="firstName"
@@ -258,7 +240,7 @@ const EditProfile = () => {
                 {/* lastName */}
                 <Col>
                   <Form.Group>
-                    <Form.Label for="lastName">
+                    <Form.Label htmlForlFor="lastName">
                       Last Name
                       <Form.Control
                         id="lastName"
@@ -278,7 +260,7 @@ const EditProfile = () => {
               <Row>
                 <Col>
                   <Form.Group>
-                    <Form.Label for="email">
+                    <Form.Label htmlForlForlFor="email">
                       Email
                       <Form.Control
                         id="email"
@@ -295,7 +277,7 @@ const EditProfile = () => {
                 <Col>
                   {/* birthday */}
                   <Form.Group>
-                    <Form.Label for="birthday">
+                    <Form.Label htmlForlForlForlFor="birthday">
                       Date of Birth
                       <Form.Control
                         id="birthday"
@@ -316,7 +298,7 @@ const EditProfile = () => {
                 <Col>
                   {/* country -- could be separate component or get from a dependency*/}
                   <Form.Group>
-                    <Form.Label for="country" id="country">
+                    <Form.Label htmlFor="country" id="country">
                       Select Country
                       <select
                         className="form-control"
@@ -667,7 +649,7 @@ const EditProfile = () => {
                 </Col>
                 <Col>
                   <Form.Group>
-                    <Form.Label for="city">
+                    <Form.Label htmlFor="city">
                       City
                       <Form.Control
                         id="city"

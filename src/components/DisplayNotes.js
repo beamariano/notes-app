@@ -7,7 +7,6 @@ import NewNoteForm from "./NewNoteForm";
 
 const DisplayNotes = () => {
   const user = useSelector((state) => state.currentUser);
-  //const notes = useSelector((state) => state.allUserNotes);
   const noteToEdit = useSelector((state) => state.noteToEdit);
   const allNotes = useSelector((state) => state.allUserNotes);
 
@@ -28,6 +27,7 @@ const DisplayNotes = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   //modal
   const onClickCancelHandler = () => {
     clearFields("");
@@ -45,7 +45,6 @@ const DisplayNotes = () => {
 
   useEffect(() => {
     axios.get("https://beam-notes-db.herokuapp.com/notes").then((res) => {
-      console.log(res.data);
       console.log("notes updated");
       dispatch({ type: "ALL_USER_NOTES", payload: res.data });
     });
@@ -99,7 +98,7 @@ const DisplayNotes = () => {
       });
   };
 
-  //   //BUG -TO-DO
+  //   //BUG -TODO
   // when the note is deleted, it should also be deleted from user db notes array
 
   //hard delete - WORKING! as in it updates
@@ -115,10 +114,10 @@ const DisplayNotes = () => {
   // get all notes by user
   let filterNotesByUser = allNotes.filter((note) => user._id === note.by);
   // get all displayed notes by user
-  let showDisplayedNotes = allNotes.filter((note) => note.display == true);
+  let showDisplayedNotes = allNotes.filter((note) => note.display === true);
   // get all hidden notes by user
   let showHiddenNotes = filterNotesByUser.filter(
-    (note) => note.display == false
+    (note) => note.display === false
   );
 
   return (
@@ -134,8 +133,6 @@ const DisplayNotes = () => {
             <>
               <Card key={note._id} id={note._id}>
                 <Card.Header>
-                  {/* {note._id}
-                  {("displayed: ", JSON.stringify(note.display))} */}
                   <Card.Title placeholder="">{note.title}</Card.Title>
                 </Card.Header>
                 <Card.Body>
@@ -154,7 +151,7 @@ const DisplayNotes = () => {
                       />
                     </button>
 
-                    {note.display == true ? (
+                    {note.display === true ? (
                       <button
                         className="hide-btn btn"
                         onClick={() => onHideButtonHandler(note._id)}

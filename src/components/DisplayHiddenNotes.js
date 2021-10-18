@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import { React, useEffect, useState } from "react";
+import { React, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Form, Button, Modal, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import NewNoteForm from "./NewNoteForm";
 import axios from "axios";
 
@@ -50,7 +50,7 @@ const DisplayHiddenNotes = () => {
 
   let filterNotesByUser = allNotes.filter((note) => user._id === note.by);
   let showHiddenNotes = filterNotesByUser.filter(
-    (note) => note.display == false
+    (note) => note.display === false
   );
 
   return (
@@ -67,8 +67,6 @@ const DisplayHiddenNotes = () => {
             <>
               <Card key={note._id} id={note._id} className="rounded">
                 <Card.Header>
-                  {/* {note._id}
-                  {("displayed: ", JSON.stringify(note.display))} */}
                   <Card.Title placeholder="">{note.title}</Card.Title>
                 </Card.Header>
                 <Card.Body>
@@ -88,7 +86,7 @@ const DisplayHiddenNotes = () => {
                       {/* Delete */}
                     </button>
 
-                    {note.display == true ? (
+                    {note.display === true ? (
                       ""
                     ) : (
                       <button

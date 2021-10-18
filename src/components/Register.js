@@ -14,17 +14,13 @@ const Register = () => {
   const [status, setStatus] = useState("active");
   const [password, setPassword] = useState("");
   const [image, setImage] = useState("https://via.placeholder.com/150/");
-
   const [birthday, setBirthday] = useState(Date);
   const [gender, setGender] = useState("");
   const [pronouns, setPronouns] = useState("");
-
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
-
   const [lastUpdated, setLastUpdated] = useState(Date());
   const [dateCreated, setDateCreated] = useState(Date());
-
   const [confirmPassword, setConfirmPassword] = useState("");
 
   // form validation
@@ -91,7 +87,6 @@ const Register = () => {
           <Form.Label>Name</Form.Label>
           <Form.Control
             required
-            controlId="formBasicName"
             type="name"
             placeholder="Enter Name"
             value={userName}
@@ -103,7 +98,6 @@ const Register = () => {
           <Form.Label>Email address</Form.Label>
           <Form.Control
             required
-            controlId="formBasicEmail"
             type="email"
             placeholder="Enter email"
             value={email}
@@ -120,7 +114,6 @@ const Register = () => {
         <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
           <Form.Control
-            controlId="formBasicPassword"
             type="password"
             placeholder="Password"
             value={password}
@@ -130,7 +123,6 @@ const Register = () => {
         <Form.Group className="mb-3">
           <Form.Label>Repeat Password</Form.Label>
           <Form.Control
-            controlId="formBasicPassword"
             type="password"
             placeholder="Password"
             value={confirmPassword}

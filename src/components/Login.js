@@ -46,7 +46,7 @@ const Login = () => {
       <h2>Log-in</h2>
       <p>Already registered? Login to start.</p>
       <Form noValidate validated={validated}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3">
           <Form.Label>Email address</Form.Label>
           <Form.Control
             required
@@ -58,7 +58,7 @@ const Login = () => {
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
           <div className="invalid-feedback">Please enter a valid email.</div>
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
